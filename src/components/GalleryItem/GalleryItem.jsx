@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 // ===== FUNCTION ============================================= //
 
-function GalleryItem({ image, updateUpvote }) {
+function GalleryItem({ image, updateLike }) {
 
     // ===== STATE VARS ======================================= //
 
@@ -20,7 +20,7 @@ function GalleryItem({ image, updateUpvote }) {
 
     const handleUpvote = () => {
         console.log('in handleUpvote');
-        updateUpvote(image.id, image.likes);
+        updateLike(image.id, image.likes);
     }
 
 
@@ -33,7 +33,7 @@ function GalleryItem({ image, updateUpvote }) {
                 {/* Allows user to click image container and see description */}
                 <div className="image-container" onClick={handleClick}> 
                     {clicked ? 
-                        <img src={image.path} /> : 
+                        <img src={image.path} className="img-image"/> : 
                         <div className="img-description"> {image.description} </div>
                     }
                 </div>

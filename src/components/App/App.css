@@ -69,3 +69,33 @@
   padding: 20px;
   border-radius: 8px;
 }
+
+.flexbox-container-box:hover {
+  background-color: rgb(255, 253, 235);
+}
+
+/* ======= GALLERY SUBMIT ============================================ */
+
+.inp-block {
+  display: flex;
+  justify-content: center;
+}
+
+.input-name {
+  flex-grow: 0;
+}
+.input-desc {
+  flex-grow: 1;
+}
+.input-path {
+  flex-grow: 0;
+}
+.input-btn-submit {
+  flex-grow: 0;
+}
+
+.input- {
+  margin: 10px;
+}
+
+

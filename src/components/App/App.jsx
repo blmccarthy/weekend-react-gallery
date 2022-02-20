@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList';
+import GallerySubmit from '../GallerySubmit/GallerySubmit'
 import axios from 'axios';
 
 // ===== FUNCTION ============================================= //
@@ -25,10 +26,16 @@ function App() {
       })
   }
 
+  // ===== POST ================================================= //
+
+  // const postNewImage = () => {
+  //   console.log('in postNewImage');
+  // }
+
   // ===== PUT ================================================== //
 
-  const updateUpvote = (id, likes) => {
-    console.log('in updateUpvote - id:', id, 'likes:', likes);
+  const updateLike = (id, likes) => {
+    console.log('in updateLike - id:', id, 'likes:', likes);
     axios.put(`/gallery/like/${id}`)
       .then(result => {
         console.log('in PUT .then');
@@ -51,9 +58,11 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">Pokédex</h1>
       </header>
+      <GallerySubmit 
+        getImages={getImages}/>
       <GalleryList
         imageList={imageList}
-        updateUpvote={updateUpvote} />
+        updateLike={updateLike} />
     </div>
   );
 }
