@@ -24,10 +24,8 @@ function GallerySubmit({getImages}) {
         }).then((dbRes) => {
             console.log('in POST .then');
             getImages();
-            res.sendStatus(200);
         }).catch((err) => {
             console.log('in POST .catch', err);
-            res.sendStatus(500);
         })
     }
 
@@ -35,24 +33,32 @@ function GallerySubmit({getImages}) {
 
     return (
         <>
-            <div>
-                <h3>Submit a new Pokemon!</h3>
+            <h3>Submit a new Pokemon!</h3>
+            <div className="inp-block">
                 <input 
+                    className="input-name"
                     value={newName} 
                     placeholder="Name"
                     onChange={(event) => setNewName(event.target.value)}
                 />
                 <input 
+                    className="input-desc"
                     value={newDesc} 
                     placeholder="Description"
                     onChange={(event) => setNewDesc(event.target.value)}
                 />
                 <input 
+                     className="input-path"
                     value={newPath} 
                     placeholder="Image URL"
                     onChange={(event) => setNewPath(event.target.value)}
                 />
-                <button onClick={postNewImage}>Submit</button>
+                <button 
+                    className="input-btn-submit" 
+                    onClick={postNewImage}
+                >
+                    Submit
+                </button>
             </div>
         </>
     )

@@ -33,7 +33,7 @@ function GalleryItem({ image, updateLike }) {
                 {/* Allows user to click image container and see description */}
                 <div className="image-container" onClick={handleClick}> 
                     {clicked ? 
-                        <img src={image.path} /> : 
+                        <img src={image.path} className="img-image"/> : 
                         <div className="img-description"> {image.description} </div>
                     }
                 </div>
