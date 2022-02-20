@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const galleryItems = require('../modules/gallery.data');
+const pool = require('../modules/pool');
+// const galleryItems = require('../modules/gallery.data');
+
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
@@ -8,8 +10,8 @@ const galleryItems = require('../modules/gallery.data');
 router.put('/like/:id', (req, res) => {
     console.log(req.params);
     const galleryId = req.params.id;
-    for(const galleryItem of galleryItems) {
-        if(galleryItem.id == galleryId) {
+    for (const galleryItem of galleryItems) {
+        if (galleryItem.id == galleryId) {
             galleryItem.likes += 1;
         }
     }
@@ -18,7 +20,16 @@ router.put('/like/:id', (req, res) => {
 
 // GET Route
 router.get('/', (req, res) => {
-    res.send(galleryItems);
+    console.log('in GET');
+    let sqlText = `SELECT * FROM "gallery";`;
+    pool.query(sqlText)
+    .then((dbRes) => {
+        console.log('in GET .then', dbRes.rows);
+        res.send(dbRes.rows);
+    }).catch((err) => {
+        console.log('in GET .catch', err);
+        res.sendStatus(500)
+    })
 }); // END GET Route
 
 module.exports = router;

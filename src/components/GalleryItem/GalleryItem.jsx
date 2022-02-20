@@ -9,7 +9,7 @@ function GalleryItem({ image, updateUpvote }) {
 
     // ===== STATE VARS ======================================= //
 
-    const [clicked, setClicked] = useState(false);
+    const [clicked, setClicked] = useState(true);
 
     // ===== CLICK HANDLERS =================================== //
 
@@ -32,7 +32,10 @@ function GalleryItem({ image, updateUpvote }) {
 
                 {/* Allows user to click image container and see description */}
                 <div className="image-container" onClick={handleClick}> 
-                    {clicked ? <p>{image.description}</p> : <img src={image.path} />}
+                    {clicked ? 
+                        <img src={image.path} /> : 
+                        <div className="img-description"> {image.description} </div>
+                    }
                 </div>
 
                 {/* Handles upvote to server & displays new Upvote Count */}
