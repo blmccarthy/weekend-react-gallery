@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 // ===== FUNCTION ============================================= //
 
-function GalleryItem({ image, updateUpvote }) {
+function GalleryItem({ image, updateLike }) {
 
     // ===== STATE VARS ======================================= //
 
@@ -20,7 +20,7 @@ function GalleryItem({ image, updateUpvote }) {
 
     const handleUpvote = () => {
         console.log('in handleUpvote');
-        updateUpvote(image.id, image.likes);
+        updateLike(image.id, image.likes);
     }
 
 
