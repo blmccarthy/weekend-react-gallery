@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 150px;
+  width: 200px;
   padding: 20px;
   border: 1px solid rgb(206, 206, 206);
   border-radius: 10px;
@@ -45,6 +45,17 @@
 }
 
 .image-container {
-  height: 150px;
-  width: 150px;
+  /* background-color: rgb(235, 235, 235); */
+  width: 200px;
+  /* height: 100px; */
+}
+
+.image-container img {
+  width: 100px;
+  height: 100px;
+  object-fit: scale-down;
+}
+
+.image-container p {
+  padding: 10px;
 }

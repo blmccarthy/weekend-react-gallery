@@ -36,11 +36,11 @@ function GalleryItem({ image, updateUpvote }) {
                 </div>
 
                 {/* Handles upvote to server & displays new Upvote Count */}
-                <button onClick={handleUpvote}>Upvote</button>
+                <button onClick={handleUpvote}>Catch!</button>
 
                 {/* Dynamic report of current upvote count */}
-                <p>{image.likes} Upvotes</p>
-                
+                <p>Times caught: {image.likes}</p>
+
             </div>
         </>
     )
