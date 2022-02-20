@@ -1,26 +1,51 @@
-import './GalleryItem.css';
+// ===== IMPORTS ============================================= //
+
+import '../App/App.css';
 import { useState } from 'react';
 
-function GalleryItem({ image }) {
+// ===== FUNCTION ============================================= //
+
+function GalleryItem({ image, updateUpvote }) {
+
+    // ===== STATE VARS ======================================= //
 
     const [clicked, setClicked] = useState(false);
 
+    // ===== CLICK HANDLERS =================================== //
+
     const handleClick = () => {
-        console.log('yo wuddup you clicked me');
+        console.log('yo wuddup, you clicked me');
         setClicked(!clicked)
     }
 
+    const handleUpvote = () => {
+        console.log('in handleUpvote');
+        updateUpvote(image.id, image.likes);
+    }
+
+
+    // ===== RETURN =========================================== //
+
     return (
         <>
-            <div className="flexbox-container-img">
-                <div onClick={handleClick}>
+            <div className="flexbox-container-box">
+
+                {/* Allows user to click image container and see description */}
+                <div className="image-container" onClick={handleClick}> 
                     {clicked ? <p>{image.description}</p> : <img src={image.path} />}
                 </div>
-                <button>love it!</button>
-                <p>No one love this :(</p>
+
+                {/* Handles upvote to server & displays new Upvote Count */}
+                <button onClick={handleUpvote}>Upvote</button>
+
+                {/* Dynamic report of current upvote count */}
+                <p>{image.likes} Upvotes</p>
+                
             </div>
         </>
     )
 }
+
+// ===== EXPORT ================================================= //
 
 export default GalleryItem;

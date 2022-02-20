@@ -1,3 +1,5 @@
+/* =========== APP ================================================= */
+
 .App {
   text-align: center;
 }
@@ -13,3 +15,36 @@
   font-size: 1.5em;
 }
 
+/* ======= GALLERY LIST ============================================ */
+
+.flexbox-container-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* ======= GALLERY ITEM ============================================ */
+
+.flexbox-container-box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 150px;
+  padding: 20px;
+  border: 1px solid rgb(206, 206, 206);
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.flexbox-container-box p {
+  margin: 10px 0 0 0;
+}
+
+.flexbox-container-box button {
+  margin: 10px 0 0 0;
+}
+
+.image-container {
+  height: 150px;
+  width: 150px;
+}

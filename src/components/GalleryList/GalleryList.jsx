@@ -1,22 +1,29 @@
+// ===== IMPORTS ============================================= //
+
 import GalleryItem from "../GalleryItem/GalleryItem";
-import './GallaryList.css';
+import '../App/App.css';
 
+// ===== FUNCTION ============================================= //
 
-const GalleryList = ({ imageList }) => {
+const GalleryList = ({ imageList, updateUpvote }) => {
+
+    // ===== RETURN =============================================== //
 
     return (
         <>
-            <p>Gallery goes here</p>
             <div className="flexbox-container-list">
                 {imageList.map(image =>
                 (<GalleryItem
                     key={image.id}
                     image={image}
+                    updateUpvote={updateUpvote}
                 />)
                 )}
             </div>
         </>
     )
 }
+
+// ===== EXPORT ================================================= //
 
 export default GalleryList;
