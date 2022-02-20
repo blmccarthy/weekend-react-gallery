@@ -26,12 +26,6 @@ function App() {
       })
   }
 
-  // ===== POST ================================================= //
-
-  // const postNewImage = () => {
-  //   console.log('in postNewImage');
-  // }
-
   // ===== PUT ================================================== //
 
   const updateLike = (id, likes) => {
@@ -43,6 +37,19 @@ function App() {
       }).catch((err) => {
         console.log('in PUT .catch', err);
       })
+  }
+
+  // ===== DELETE =============================================== //
+
+  const deleteGalleryItem = (id) => {
+    console.log('in deleteGalleryItem', id);
+    axios.delete(`/gallery/${id}`)
+    .then((result) => {
+      console.log('in deleteGalleryItem .then');
+      getImages();
+    }).catch((err) => {
+      console.log('in deleteGalleryItem .catch', err);
+    })
   }
 
   // ===== USE EFFECT =========================================== //
@@ -62,7 +69,8 @@ function App() {
         getImages={getImages}/>
       <GalleryList
         imageList={imageList}
-        updateLike={updateLike} />
+        updateLike={updateLike} 
+        deleteGalleryItem={deleteGalleryItem}/>
     </div>
   );
 }

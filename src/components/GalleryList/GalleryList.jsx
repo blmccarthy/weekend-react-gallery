@@ -5,7 +5,7 @@ import '../App/App.css';
 
 // ===== FUNCTION ============================================= //
 
-const GalleryList = ({ imageList, updateLike }) => {
+const GalleryList = ({ imageList, updateLike, deleteGalleryItem }) => {
 
     // ===== RETURN =============================================== //
 
@@ -17,6 +17,7 @@ const GalleryList = ({ imageList, updateLike }) => {
                     key={image.id}
                     image={image}
                     updateLike={updateLike}
+                    deleteGalleryItem={deleteGalleryItem}
                 />)
                 )}
             </div>

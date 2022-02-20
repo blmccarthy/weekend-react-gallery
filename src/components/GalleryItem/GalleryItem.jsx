@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 // ===== FUNCTION ============================================= //
 
-function GalleryItem({ image, updateLike }) {
+function GalleryItem({ image, updateLike, deleteGalleryItem }) {
 
     // ===== STATE VARS ======================================= //
 
@@ -21,6 +21,11 @@ function GalleryItem({ image, updateLike }) {
     const handleUpvote = () => {
         console.log('in handleUpvote');
         updateLike(image.id, image.likes);
+    }
+
+    const handleDelete = () => {
+        console.log('in handleDelete', image.id);
+        deleteGalleryItem(image.id)
     }
 
 
@@ -40,6 +45,9 @@ function GalleryItem({ image, updateLike }) {
 
                 {/* Handles upvote to server & displays new Upvote Count */}
                 <button onClick={handleUpvote}>Catch!</button>
+
+                {/* Handles delete to server & rerenders gallery */}
+                <button onClick={handleDelete}>Delete</button>
 
                 {/* Dynamic report of current upvote count */}
                 <p>Times caught: {image.likes}</p>

@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
         console.log('in POST .catch', err);
         res.sendStatus(500);
     })
-})
+}) // end POST
 
 // ===== PUT ============================================================== //
 
@@ -49,6 +49,22 @@ router.put('/like/:id', (req, res) => {
         res.sendStatus(500);
     })
 }); // end PUT
+
+// ===== DELETE =============================================================== //
+
+router.delete('/:id', (req, res) => {
+    const galleryId = [req.params.id];
+    console.log('in router.delete - id:', galleryId);
+    const sqlText = `DELETE FROM "gallery" WHERE "id" = $1;`;
+    pool.query(sqlText, galleryId)
+    .then((dbRes) => {
+        console.log('in DELETE .then');
+        res.sendStatus(200);
+    }).catch((err) => {
+        console.log('in DELETE .catch', err);
+        res.sendStatus(500);
+    })
+})
 
 // ===== EXPORTS ============================================================== //
 
