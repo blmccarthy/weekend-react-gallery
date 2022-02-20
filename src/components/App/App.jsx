@@ -58,7 +58,8 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">Pokédex</h1>
       </header>
-      <GallerySubmit />
+      <GallerySubmit 
+        getImages={getImages}/>
       <GalleryList
         imageList={imageList}
         updateLike={updateLike} />

@@ -5,7 +5,7 @@ import {useState} from 'react';
 
 // ===== FUNCTION ============================================ //
 
-function GallerySubmit() {
+function GallerySubmit({getImages}) {
     
     // ===== STATE VARS ====================================== //
 
@@ -17,12 +17,13 @@ function GallerySubmit() {
 
     const postNewImage = () => {
         console.log('in postNewImage');
-        axios.post('/', {
-            name: {newName},
-            description: {newDesc},
-            path: {newPath}
+        axios.post('/gallery', {
+            name: newName,
+            description: newDesc,
+            path: newPath
         }).then((dbRes) => {
             console.log('in POST .then');
+            getImages();
             res.sendStatus(200);
         }).catch((err) => {
             console.log('in POST .catch', err);
