@@ -35,6 +35,8 @@ function GalleryItem({ image, updateLike, deleteGalleryItem }) {
         <>
             <div className="flexbox-container-box">
 
+                <h3>{image.name}</h3>
+
                 {/* Allows user to click image container and see description */}
                 <div className="image-container" onClick={handleClick}> 
                     {clicked ? 
@@ -42,12 +44,16 @@ function GalleryItem({ image, updateLike, deleteGalleryItem }) {
                         <div className="img-description"> {image.description} </div>
                     }
                 </div>
+                
+                <div className="image-buttons">
 
-                {/* Handles upvote to server & displays new Upvote Count */}
-                <button onClick={handleUpvote}>Catch!</button>
+                    {/* Handles upvote to server & displays new Upvote Count */}
+                    <button onClick={handleUpvote}>Catch!</button>
 
-                {/* Handles delete to server & rerenders gallery */}
-                <button onClick={handleDelete}>Delete</button>
+                    {/* Handles delete to server & rerenders gallery */}
+                    <button onClick={handleDelete}>Delete</button>
+
+                </div>
 
                 {/* Dynamic report of current upvote count */}
                 <p>Times caught: {image.likes}</p>

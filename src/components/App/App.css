@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Pixolletta-8px;
+  src: url(../../../public/fonts/Pixolletta-8px.ttf);
+}
+
 /* =========== APP ================================================= */
 
 * {
@@ -22,12 +27,17 @@
   font-weight: 700;
 }
 
+h3 {
+  font-family: Pixolletta-8px;
+}
+
 /* ======= GALLERY LIST ============================================ */
 
 .flexbox-container-list {
   display: inline-flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  justify-content: center;
 }
 
 /* ======= GALLERY ITEM ============================================ */
@@ -36,11 +46,13 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 200px;
   padding: 20px;
   border: 1px solid rgb(206, 206, 206);
   border-radius: 10px;
   margin: 10px;
+  min-width: 150px;
+  max-width: 250px;
+  flex: 1 1 0%;
 }
 
 .flexbox-container-box p {
@@ -51,27 +63,36 @@
   margin: 10px 0 0 0;
 }
 
-.image-container {
-  /* background-color: rgb(235, 235, 235); */
-  width: 200px;
-  /* height: 100px; */
+.flexbox-container-box h3 {
+  margin: 7px 0 10px 0;
 }
 
 .image-container img {
   width: 100px;
   height: 100px;
   object-fit: scale-down;
+  align-items: center;
 }
 
 .img-description {
   border: 1px solid rgb(218, 218, 218);
-  /* color: rgb(255, 255, 255); */
   padding: 20px;
   border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .flexbox-container-box:hover {
   background-color: rgb(255, 253, 235);
+}
+
+.image-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.image-buttons button {
+  flex-grow: 1;
+  margin: 0 5px 0 5px;
 }
 
 /* ======= GALLERY SUBMIT ============================================ */
@@ -79,23 +100,24 @@
 .inp-block {
   display: flex;
   justify-content: center;
+  padding: 0 5% 20px 5%;
 }
 
 .input-name {
   flex-grow: 0;
+  margin: 0 5px 0 5px;
 }
 .input-desc {
   flex-grow: 1;
+  margin: 0 5px 0 5px;
 }
 .input-path {
   flex-grow: 0;
+  margin: 0 5px 0 5px;
 }
 .input-btn-submit {
   flex-grow: 0;
-}
-
-.input- {
-  margin: 10px;
+  margin: 0 5px 0 5px;
 }
 
 
